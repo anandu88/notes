@@ -12,8 +12,8 @@ class Signinpage extends StatefulWidget {
 }
 
 class _SigninpageState extends State<Signinpage> {
-    TextEditingController _emailcontroller = TextEditingController();
-  TextEditingController _passwordcontroller = TextEditingController();
+   final  TextEditingController _emailcontroller = TextEditingController();
+   final   TextEditingController _passwordcontroller = TextEditingController();
 
   
   @override
@@ -50,7 +50,8 @@ class _SigninpageState extends State<Signinpage> {
              padding: const EdgeInsets.all(8.0),
              child: TextFormField(
               controller: _passwordcontroller,
-               keyboardType: TextInputType.emailAddress,
+               keyboardType: TextInputType.visiblePassword,
+               obscureText: true,
                decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),

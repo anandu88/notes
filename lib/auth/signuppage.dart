@@ -77,7 +77,8 @@ class _SignuppageState extends State<Signuppage> {
              padding: const EdgeInsets.all(8.0),
              child: TextFormField(
               controller: _passwordcontroller,
-               keyboardType: TextInputType.emailAddress,
+               keyboardType: TextInputType.visiblePassword,
+               obscureText: true,
                decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -93,7 +94,8 @@ class _SignuppageState extends State<Signuppage> {
              padding: const EdgeInsets.all(8.0),
              child: TextFormField(
               controller: _conformpasswordcontroller,
-               keyboardType: TextInputType.emailAddress,
+               keyboardType: TextInputType.visiblePassword,
+               obscureText: true,
                decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),

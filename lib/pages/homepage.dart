@@ -70,47 +70,56 @@ class _HomepageState extends State<Homepage> {
                    description: snapshot.data!.docs[index]['description'],
                     ref: snapshot.data!.docs[index].reference,),));
                 },
-                  child: Container(padding: const EdgeInsets.only(bottom: 10),
-                    child: Slidable(endActionPane:ActionPane(motion: const StretchMotion()
-                    , children: [
-                      SlidableAction(onPressed: (context) async{
-                        await FirebaseFirestore.instance.collection("notes").
-                    doc(auth.currentUser!.uid).collection("mynotes").doc(snapshot.data!.docs[index]["time"]).delete();
-                        
-                      },
-                      borderRadius: BorderRadius.circular(10),
-                      icon: Icons.delete,foregroundColor: Colors.red,)
-                    ]) ,
-                    child:  Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Expanded(
                       child: Container(
-                              margin:const EdgeInsets.all( 10),
-                            
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color:Colors.purple.shade200
-                            ),
-                            
-                            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text( snapshot.data!.docs[index]['title'],
-                                  style:GoogleFonts.roboto(fontSize: 20) ,),
-                                ),
-                                 Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Text( snapshot.data!.docs[index]['description']),
-                                 ),
-                                 Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Text(DateFormat.yMd().add_jm().format(time)),
-                                 )
-                              ],
-                            ),
-                          ),
-                    ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.white
+                                      
+                        )
+                      ),
                       
+                        child: Slidable(endActionPane:ActionPane(motion: const StretchMotion()
+                        , children: [
+                          SlidableAction(onPressed: (context) async{
+                            await FirebaseFirestore.instance.collection("notes").
+                        doc(auth.currentUser!.uid).collection("mynotes").doc(snapshot.data!.docs[index]["time"]).delete();
+                            
+                          },autoClose: true,
+                          borderRadius: BorderRadius.circular(10),
+                          icon: Icons.delete,foregroundColor: Colors.red,)
+                        ]) ,
+                        child:  Container(
+                                margin:const EdgeInsets.all( 10),
+                              
+                              width: MediaQuery.of(context).size.width,
+                              
+                        
+                        
+                              
+                              child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text( snapshot.data!.docs[index]['title'],
+                                    style:GoogleFonts.roboto(fontSize: 20) ,),
+                                  ),
+                                   Padding(
+                                     padding: const EdgeInsets.all(8.0),
+                                     child: Text( snapshot.data!.docs[index]['description']),
+                                   ),
+                                   Padding(
+                                     padding: const EdgeInsets.all(8.0),
+                                     child: Text(DateFormat.yMd().add_jm().format(time)),
+                                   )
+                                ],
+                              ),
+                            ),
+                          
+                        ),
+                      ),
                     ),
                   ),
                 );

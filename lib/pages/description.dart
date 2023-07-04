@@ -31,7 +31,7 @@ class _EditnoteState extends State<Editnote> {
     descriptionController.text=widget.description;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit note"),
+        title: const Text("Edit note"),
 
       ),
       body: SingleChildScrollView(
@@ -74,7 +74,7 @@ class _EditnoteState extends State<Editnote> {
         updatetask();
         
       },
-      child:const  Icon(Icons.save),),
+      child:const  Icon(Icons.edit),),
     );
   }
   
